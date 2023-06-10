@@ -7,9 +7,29 @@ import datetime
 now = datetime.datetime.now()
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
-st.title("O verdadeiro custo da corrupção")
-st.subheader("por Pedro Schuller")
+st.title("O rentismo e o verdadeiro custo da corrupção")
+st.header("Pós-Graduação em Pensamento Liberal - Teoria da Escolha Pública")
+st.write("por Pedro Schuller")
 
+st.subheader("A Teoria da Escolha Pública")
+
+st.write("Apesar do valor da liberdade ser amplamente aclamado por boa parte das forças políticas e setores da sociedade nas democracias ocidentais, a despesa estatal e expectativa de que os governantes resolvam os problemas quotidianos das pessoas tem tido uma tendência crescente, assim como o efectivo poder de decisão que é voluntariamente ou involuntariamente cedido a estes pelos indivíduos.")
+
+st.write("A teoria da ecolha pública desafia a noção de que os governos consistem em governantes omniscientes e benevolentes que agem sempre no melhor interesse do bem comum. Em vez disso, propõe uma perepectiva mais realista do processo de tomada de decisão nos sistemas democráticos, reconhecendo o comportamento egoísta dos indivíduos, incluindo políticos e burocratas.")
+
+st.write("Uma das principais conclusões da teoria da escolha pública é que os indivíduos na esfera política não são fundamentalmente diferentes dos do sector privado. Têm as suas próprias preferências, motivações e incentivos, e agem para maximizar a sua própria utilidade, tal como os indivíduos nas transacções de mercado. Este entendimento torna evidente o facto de os políticos e os burocratas estarem sujeitos às mesmas falhas, preconceitos e limitações que qualquer outra pessoa.")
+
+st.write("A TEP enfatiza a importância de analisar o comportamento dos políticos e burocratas no âmbito do seu interesse próprio. Sugere que estes indivíduos seguem frequentemente políticas que os beneficiam a si próprios, aos seus apoiantes ou a grupos de interesses especiais, em vez de se concentrarem exclusivamente no chamado 'bem comum'. A teoria da escolha pública também salienta a inclinação natural para comportamentos rentistas, em que os indivíduos procuram obter riqueza ou privilégios através de meios políticos, conduzindo a resultados globalmente ineficientes e injustos.")
+
+st.write("O impacto da teoria da escolha pública na forma tradicional de encarar a democracia é duplo. Em primeiro lugar, contribuiu para uma avaliação mais céptica e crítica do processo de decisão política, desafiando a visão idealista de que as instituições democráticas podem, por si só, garantir resultados que correspondam ao suposto 'interesse público'. Ao reconhecer os incentivos individualistas dos actores políticos, a teoria da escolha pública incentiva a uma compreensão mais realista das limitações e potenciais armadilhas dos sistemas democráticos.")
+
+st.write("Como consequência, da teoria da escolha pública decorre a necessidade de reformas institucionais para resolver as deficiências e inconsistências que identifica. Sugere que a concepção de instituições e incentivos políticos de forma a alinhar os interesses próprios dos políticos e burocratas com o interesse público pode conduzir a melhores resultados. Isto pode implicar a redução do âmbito da intervenção governamental, a introdução de controlos e equilíbrios, a promoção da transparência e da responsabilização e o incentivo à concorrência entre os actores políticos.")
+
+st.subheader("O rentismo e o custo da corrupção")
+
+st.write("Vamos explorar uma das decorrências da teoria da escolha pública: o rentismo, ou rent-seeking. Tal como dito por Alves e Meadowcraft (em 'Hayek’s Slippery Slope, the Stability of the Mixed Economy and the Dynamics of Rent Seeking'), o rentismo explica a estabilidade das economias mistas, mostrando que a dinâmica da procura de rendas conduz à instabilidade inerente ao laissez-faire ou aos regimes autoritários. À medida que a procura de rendas aumenta e o Estado passa a dominar um grande sector da economia, os ganhos potenciais de mais procura de rendas diminuem ao ponto de os benefícios da procura de rendas futura serem provavelmente inferiores aos custos da acção política necessária para os obter. Isto significa que a economia mista é relativamente estável, uma vez que os benefícios de uma maior procura de rendimentos são compensados pelos custos, e o processo de slippery slope pode ser contrabalançado por características de auto-equilíbrio mais poderosas das economias mistas.")
+
+st.write("Com o seguinte exercício, podemos verificar como é fácil que a economia penda para um maior peso do estado e dos decisores políticos nas decisões económicas.")
 
 # %%
 def gerar_estacoes(num_estacoes):
@@ -127,6 +147,7 @@ st.write("cenas")
 
 # %%
 
+
 st.write(f"Custo Inicial da Obra: {10*comprimento_inicial:.2f} milhões de euros")
 st.write(f"Custo Final da Obra: {10* comprimento_final:.2f} milhões de euros")
 st.write(f"Luva paga ao político: {luva:.0f} mil euros")
@@ -139,6 +160,7 @@ custo_corrupcao = 10*(comprimento_final - comprimento_inicial)
 st.write(f"Verdadeiro custo da corrupção: {custo_corrupcao:.2f} milhões de euros")
 
 # %%
+
 
 
 
