@@ -5,6 +5,8 @@ from scipy.spatial import distance_matrix
 import streamlit as st
 import datetime
 now = datetime.datetime.now()
+np.random.seed(now.hour)
+
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
 st.title("O rentismo e o verdadeiro custo da corrupção")
@@ -33,7 +35,6 @@ st.write("Com o seguinte exercício, podemos verificar como é fácil que a econ
 
 # %%
 def gerar_estacoes(num_estacoes):
-    np.random.seed(now.hour)
     return np.random.uniform(0, 10, size=(num_estacoes, 2))
 
 # %%
@@ -139,16 +140,18 @@ luva = 10
 luva = st.slider('Luva (em milhares de euros) a pagar ao autarca', 10, 250)
 comprimento_final = comprimento_inicial
 corrompido = False
+threshold = np.random.uniform(40, 150)
 
-if luva >= 50:
+if luva >= threshold:
     corrompido = True
 
 if corrompido:
+    st.write("O autarca convenceu-se com o donativo e viciará o concurso para que a ligação que passa no terreno do amigo não possa ser estabelecida.")
     ligacoes, comprimento_final = otimizar_rede(estacoes, estacoes_afetadas)
     contorno_fig = desenhar_rede(estacoes, ligacoes, comprimento_final, casa_amigo_autarca, lucro*25)
     st.pyplot(contorno_fig)
 
-    st.write("O autarca convenceu-se com o donativo e viciará o concurso para que a ligação que passa no terreno do amigo não possa ser estabelecida. Esta decisão beneficiará o próprio, que ficará com os bolsos mais cheios. Beneficiará o amigo, que poderá fazer desimpedidamente um investimento lucrativo. No entanto, o custo adicional da infraestrutura será distribuído por todos os contribuintes da cidade, que fica com uma rede mais ineficiente, mais cara e sem poder investir a diferença noutro qualquer projeto público.")
+    st.write("Esta decisão beneficiará o próprio, que ficará com os bolsos mais cheios. Beneficiará o amigo, que poderá fazer desimpedidamente um investimento lucrativo. No entanto, o custo adicional da infraestrutura será distribuído por todos os contribuintes da cidade, que fica com uma rede mais ineficiente, mais cara e sem poder investir a diferença noutro qualquer projeto público. Façamos as contas:")
 
     st.write(f"Custo Inicial da Obra: {10*comprimento_inicial:.2f} milhões de euros")
     st.write(f"Custo Final da Obra: {10* comprimento_final:.2f} milhões de euros")
