@@ -9,6 +9,7 @@ np.random.seed(now.hour)
 
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
+st.set_page_config(page_title="Teoria da Escolha Pública - O rentismo e o verdadeiro custo da corrupção")
 st.title("O rentismo e o verdadeiro custo da corrupção")
 st.header("Pós-Graduação em Pensamento Liberal - Teoria da Escolha Pública")
 st.write("por Pedro Schuller")
