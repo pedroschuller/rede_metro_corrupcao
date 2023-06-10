@@ -117,10 +117,9 @@ st.pyplot(estacoes_fig)
 # %%
 # Create obstacle in the middle of a random connection
 
-st.write("O autarca desta cidade responsável pela elaboração deste concurso está a ser pressionado por um amigo para que a linha não passe num determinado local. É que esse amigo é dono desses terrenos e está interessado em ali realizar uns investimentos imobiliários muitíssimo lucrativos, para os quais a câmara até já tinha mudado o PDM para aí atribuir capacidade construtiva excepcional.")
+st.write(f"A empresa realizou os estudos e está confiante que é capaz de apresentar uma proposta competitiva pela justa quantia de {10*comprimento_inicial:.2f} milhões. No entanto, a história não fica por aqui. O autarca desta cidade responsável pela elaboração deste concurso está a ser pressionado por um amigo para que a linha não passe num determinado local. É que esse amigo é dono desses terrenos e está interessado em ali realizar uns investimentos imobiliários muitíssimo lucrativos, para os quais a câmara até já tinha mudado o PDM para aí atribuir capacidade construtiva excepcional.")
 lucro = 2
 lucro = st.slider('Lucro do investimento (em milhões de euros)', 0.5, 5.0)
-
 
 ligacoes_estabelecidas = np.nonzero(ligacoes)
 ligacao_a_sorte = np.random.choice(len(ligacoes_estabelecidas[0]))
@@ -128,7 +127,6 @@ origem = ligacoes_estabelecidas[0][ligacao_a_sorte]
 destino = ligacoes_estabelecidas[1][ligacao_a_sorte]
 casa_amigo_autarca = ([(estacoes[origem][0]+estacoes[destino][0])/2, (estacoes[origem][1]+estacoes[destino][1])/2])
 estacoes_afetadas = (origem, destino)
-
 
 casa_fig = desenhar_rede(estacoes, ligacoes, comprimento_inicial, casa_amigo_autarca, lucro*25)
 st.pyplot(casa_fig)
@@ -146,12 +144,12 @@ if luva >= threshold:
     corrompido = True
 
 if corrompido:
-    st.write("O autarca convenceu-se com o donativo e viciará o concurso para que a ligação que passa no terreno do amigo não possa ser estabelecida.")
+    st.write("O autarca convenceu-se com o donativo e viciará o concurso para que a ligação que passa no terreno do amigo não possa ser estabelecida. Às empresas candidatas resta-lhes estudar um traçado da obra que cumpra com os requisitos:")
     ligacoes, comprimento_final = otimizar_rede(estacoes, estacoes_afetadas)
     contorno_fig = desenhar_rede(estacoes, ligacoes, comprimento_final, casa_amigo_autarca, lucro*25)
     st.pyplot(contorno_fig)
 
-    st.write("Esta decisão beneficiará o próprio, que ficará com os bolsos mais cheios. Beneficiará o amigo, que poderá fazer desimpedidamente um investimento lucrativo. No entanto, o custo adicional da infraestrutura será distribuído por todos os contribuintes da cidade, que fica com uma rede mais ineficiente, mais cara e sem poder investir a diferença noutro qualquer projeto público. Façamos as contas:")
+    st.write("Esta decisão beneficiará o próprio autarca, que ficará com os bolsos mais cheios. Beneficiará o amigo, que poderá fazer desimpedidamente um investimento lucrativo. No entanto, o custo adicional da infraestrutura será distribuído por todos os contribuintes da cidade, que fica com uma rede mais ineficiente, mais cara e sem poder investir a diferença noutro qualquer projeto público. Façamos as contas:")
 
     st.write(f"Custo Inicial da Obra: {10*comprimento_inicial:.2f} milhões de euros")
     st.write(f"Custo Final da Obra: {10* comprimento_final:.2f} milhões de euros")
@@ -162,5 +160,9 @@ if corrompido:
     st.write(f"Verdadeiro custo da corrupção: {custo_corrupcao:.2f} milhões de euros")
 
     st.write("Estabelecido com este exercício um exemplo concreto de um mecanismo de rentismo, resta-nos concluir que, face às conclusões da Teoria da Escolha Pública e da inevitabilidade das economias mistas e, praticamente, da existência de corrupção e rentismo em democracias representativas, é aos indivíduos que cabe a exigência de soberania sobre as suas próprias decisões, de reformas que limitem a arbitrariedade do poder público, e de serem a força que faz pender a sociedade no sentido de ser mais aberta e livre, que em última instância resultará numa economia mais eficiente e em mais justiça para todos.")
+
+st.divider()
+
+st.write("Check the source code @ https://github.com/pedroschuller/rede_metro_corrupcao/blob/main/script_rede_metro.py")
 
 
