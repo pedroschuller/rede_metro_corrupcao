@@ -89,7 +89,7 @@ def desenhar_rede(estacoes, ligacoes = [0], comprimento_total = None, obstaculo 
         plt.title('Estações de Metro')
 
     if obstaculo != None:
-        plt.scatter(obstaculo[0], obstaculo[1], marker='x', color='black', s=tamanho, label='Investimento do amigo do autarca')
+        plt.scatter(obstaculo[0], obstaculo[1], marker='x', color='green', s=tamanho, label='Investimento do amigo do autarca')
 
                 
     plt.legend()
