@@ -68,7 +68,7 @@ def otimizar_rede(estacoes, ligacao_impedida = (0,0)):
     return rede, comprimento_total
 
 # %%
-def desenhar_rede(estacoes, ligacoes = [0], comprimento_total = None, obstaculo = None):
+def desenhar_rede(estacoes, ligacoes = [0], comprimento_total = None, obstaculo = None, tamanho = 100):
     estacoes_x = estacoes[:, 0]
     estacoes_y = estacoes[:, 1]
 
@@ -77,9 +77,6 @@ def desenhar_rede(estacoes, ligacoes = [0], comprimento_total = None, obstaculo 
     plt.xlabel('X')
     plt.ylabel('Y')
     
-    if obstaculo != None:
-        plt.scatter(obstaculo[0], obstaculo[1], marker='x', color='black', s=100, label='Casa do amigo do autarca')
-
     
     if not np.array_equal(ligacoes, [0]): 
         plt.title(f'Rede de Metro - Custo Total: {10*comprimento_total:.2f} M€')
@@ -89,6 +86,10 @@ def desenhar_rede(estacoes, ligacoes = [0], comprimento_total = None, obstaculo 
                     plt.plot([estacoes_x[i], estacoes_x[j]], [estacoes_y[i], estacoes_y[j]], color='r', linewidth=2)
     else:
         plt.title('Estações de Metro')
+
+    if obstaculo != None:
+        plt.scatter(obstaculo[0], obstaculo[1], marker='x', color='black', s=tamanho, label='Investimento do amigo do autarca')
+
                 
     plt.legend()
     plt.show()
@@ -128,7 +129,7 @@ casa_amigo_autarca = ([(estacoes[origem][0]+estacoes[destino][0])/2, (estacoes[o
 estacoes_afetadas = (origem, destino)
 
 
-casa_fig = desenhar_rede(estacoes, ligacoes, comprimento_inicial, casa_amigo_autarca)
+casa_fig = desenhar_rede(estacoes, ligacoes, comprimento_inicial, casa_amigo_autarca, lucro*25)
 st.pyplot(casa_fig)
 
 # %%
@@ -137,30 +138,26 @@ st.write("O investidor teme que a nova infraestrutura gore completamente os seus
 luva = 10
 luva = st.slider('Luva (em milhares de euros) a pagar ao autarca', 10, 250)
 comprimento_final = comprimento_inicial
+corrompido = False
+
 if luva >= 50:
+    corrompido = True
+
+if corrompido:
     ligacoes, comprimento_final = otimizar_rede(estacoes, estacoes_afetadas)
+    contorno_fig = desenhar_rede(estacoes, ligacoes, comprimento_final, casa_amigo_autarca, lucro*25)
+    st.pyplot(contorno_fig)
 
-contorno_fig = desenhar_rede(estacoes, ligacoes, comprimento_final, casa_amigo_autarca)
-st.pyplot(contorno_fig)
+    st.write("O autarca convenceu-se com o donativo e viciará o concurso para que a ligação que passa no terreno do amigo não possa ser estabelecida. Esta decisão beneficiará o próprio, que ficará com os bolsos mais cheios. Beneficiará o amigo, que poderá fazer desimpedidamente um investimento lucrativo. No entanto, o custo adicional da infraestrutura será distribuído por todos os contribuintes da cidade, que fica com uma rede mais ineficiente, mais cara e sem poder investir a diferença noutro qualquer projeto público.")
 
-st.write("cenas")
+    st.write(f"Custo Inicial da Obra: {10*comprimento_inicial:.2f} milhões de euros")
+    st.write(f"Custo Final da Obra: {10* comprimento_final:.2f} milhões de euros")
+    st.write(f"Luva paga ao político: {luva:.0f} mil euros")
+    beneficio = lucro - luva/1000
+    st.write(f"Benefício para o empresário ao corromper: {beneficio:.2f} milhões de euros")
+    custo_corrupcao = 10*(comprimento_final - comprimento_inicial)
+    st.write(f"Verdadeiro custo da corrupção: {custo_corrupcao:.2f} milhões de euros")
 
-# %%
-
-
-st.write(f"Custo Inicial da Obra: {10*comprimento_inicial:.2f} milhões de euros")
-st.write(f"Custo Final da Obra: {10* comprimento_final:.2f} milhões de euros")
-st.write(f"Luva paga ao político: {luva:.0f} mil euros")
-
-beneficio = lucro - luva/1000
-
-st.write(f"Benefício para o empresário ao corromper: {beneficio:.2f} milhões de euros")
-
-custo_corrupcao = 10*(comprimento_final - comprimento_inicial)
-st.write(f"Verdadeiro custo da corrupção: {custo_corrupcao:.2f} milhões de euros")
-
-# %%
-
-
+    st.write("Estabelecido com este exercício um exemplo concreto de um mecanismo de rentismo, resta-nos concluir que, face às conclusões da Teoria da Escolha Pública e da inevitabilidade das economias mistas e, praticamente, da existência de corrupção e rentismo em democracias representativas, é aos indivíduos que cabe a exigência de soberania sobre as suas próprias decisões, de reformas que limitem a arbitrariedade do poder público, e de serem a força que faz pender a sociedade no sentido de ser mais aberta e livre, que em última instância resultará numa economia mais eficiente e em mais justiça para todos.")
 
 
