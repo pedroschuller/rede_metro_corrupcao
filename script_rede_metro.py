@@ -18,7 +18,7 @@ st.subheader("A Teoria da Escolha Pública")
 
 st.write("Apesar do valor da liberdade ser amplamente aclamado por boa parte das forças políticas e setores da sociedade nas democracias ocidentais, a despesa estatal e expectativa de que os governantes resolvam os problemas quotidianos das pessoas tem tido uma tendência crescente, assim como o efectivo poder de decisão que é voluntariamente ou involuntariamente cedido a estes pelos indivíduos.")
 
-st.write("A teoria da ecolha pública desafia a noção de que os governos consistem em governantes omniscientes e benevolentes que agem sempre no melhor interesse do bem comum. Em vez disso, propõe uma perepectiva mais realista do processo de tomada de decisão nos sistemas democráticos, reconhecendo o comportamento egoísta dos indivíduos, incluindo políticos e burocratas.")
+st.write("A Teoria da Escolha Pública desafia a noção de que os governos consistem em governantes omniscientes e benevolentes que agem sempre no melhor interesse do bem comum. Em vez disso, propõe uma perepectiva mais realista do processo de tomada de decisão nos sistemas democráticos, reconhecendo o comportamento egoísta dos indivíduos, incluindo políticos e burocratas.")
 
 st.write("Uma das principais conclusões da teoria da escolha pública é que os indivíduos na esfera política não são fundamentalmente diferentes dos do sector privado. Têm as suas próprias preferências, motivações e incentivos, e agem para maximizar a sua própria utilidade, tal como os indivíduos nas transacções de mercado. Este entendimento torna evidente o facto de os políticos e os burocratas estarem sujeitos às mesmas falhas, preconceitos e limitações que qualquer outra pessoa.")
 
@@ -30,7 +30,7 @@ st.write("Como consequência, da teoria da escolha pública decorre a necessidad
 
 st.subheader("O rentismo e o custo da corrupção")
 
-st.write("Vamos explorar uma das decorrências da teoria da escolha pública: o rentismo, ou rent-seeking. Tal como dito por Alves e Meadowcraft (em 'Hayek’s Slippery Slope, the Stability of the Mixed Economy and the Dynamics of Rent Seeking'), o rentismo explica a estabilidade das economias mistas, mostrando que a dinâmica da procura de rendas conduz à instabilidade inerente ao laissez-faire ou aos regimes autoritários. À medida que a procura de rendas aumenta e o Estado passa a dominar um grande sector da economia, os ganhos potenciais de mais procura de rendas diminuem ao ponto de os benefícios da procura de rendas futura serem provavelmente inferiores aos custos da acção política necessária para os obter. Isto significa que a economia mista é relativamente estável, uma vez que os benefícios de uma maior procura de rendimentos são compensados pelos custos, e o processo de slippery slope pode ser contrabalançado por características de auto-equilíbrio mais poderosas das economias mistas.")
+st.write("Vamos explorar uma das decorrências da teoria da escolha pública: o rentismo, ou rent-seeking. Tal como dito por Alves e Meadowcroft (em 'Hayek’s Slippery Slope, the Stability of the Mixed Economy and the Dynamics of Rent Seeking'), o rentismo explica a estabilidade das economias mistas, mostrando que a dinâmica do rentismo conduz à instabilidade inerente ao laissez-faire ou aos regimes autoritários. À medida que o rentismo aumenta e o Estado passa a dominar um grande sector da economia, os ganhos potenciais de mais atividade rentista diminuem ao ponto de os benefícios futuros serem provavelmente inferiores aos custos da acção política necessária para os obter. Isto significa que a economia mista é relativamente estável, uma vez que os benefícios para os agentes políticos do rentismo são compensados pelos custos, e o processo de "rampa deslizante" pode ser contrabalançado por características de auto-equilíbrio mais poderosas das economias mistas.")
 
 st.write("Com o seguinte exercício, podemos verificar como é fácil que a economia penda para um maior peso do estado e dos decisores políticos nas decisões económicas.")
 
@@ -165,5 +165,3 @@ if corrompido:
 st.divider()
 
 st.write("Check the source code @ https://github.com/pedroschuller/rede_metro_corrupcao/blob/main/script_rede_metro.py")
-
-
